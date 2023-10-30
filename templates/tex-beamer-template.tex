@@ -1,0 +1,65 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+%Packages
+\usepackage{amsmath} %package for formatting and displaying math
+\usepackage{amssymb} %package of math and other symbols
+\usepackage{fancyhdr} %package for making headers and footers
+\usepackage[normalem]{ulem} %package provides an \ul (underline) command
+\usepackage{physics} %package for formatting physics equations
+\usepackage{multicol} %package for rendering multiple columns
+\usepackage{float} %Improves the interface for defining floating objects such as figures and tables
+\usepackage{graphicx} %The package builds upon the graphics package, providing a key-value interface for optional arguments to the \includegraphics command.
+\usepackage{tabularx} %Version of tabular where col widths are calculated to hit a specified table width
+\usepackage{lmodern} %Latin modern fonts
+
+%Define custom colors for color scheme
+\definecolor{UCBCorange}{rgb}{0.91373, 0.29412, 0.21569} 
+\definecolor{UCBCgreen}{rgb}{0, 0.51, 0.4} 
+\definecolor{Taylorpurple}{rgb}{0.318, 0.176, 0.431}
+
+%Set color theme
+\usecolortheme[named=Taylorpurple]{structure}
+
+%Choose beamer theme
+% \usetheme{Singapore}
+% \usetheme{Madrid}
+\usetheme{Frankfurt}
+% \usetheme{AnnArbor}
+
+%Set logo
+% \logo{\includegraphics[width=.1\textwidth]{~/.env/templates/logos/Taylor/Taylor_shieldlogo.png}}
+\logo{\includegraphics[width=.15\textwidth]{~/.env/templates/logos/Taylor/Taylor_seal-purple.png}}
+
+%Set title, author and date
+\title{Presentation title}
+\author{Benjamin Lawson}
+% \date{here you write your own date}
+
+\begin{document}
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\begin{frame}{Frame title}{Frame subtitle}
+    Frame content
+\end{frame}
+
+% \begin{frame}{Slide with image}
+%     \includegraphics[width=3.5in]{figs/imagename.png}
+% \end{frame}
+
+% \begin{frame}{Slide with block}
+%     \begin{block}{Block title} 
+%         Block content
+%     \end{block}
+% \end{frame}
+
+% \begin{frame}{Slide with progressively appearing list}
+% \begin{itemize}[<+->]
+%     \item item 1
+%     \item item 2
+%     \item item 3
+% \end{itemize}
+% \end{frame}
+
+\end{document}

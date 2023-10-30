@@ -1,0 +1,104 @@
+set term=xterm-256color
+
+"plugins
+set nocompatible
+filetype off
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'junegunn/fzf'
+Plugin 'tpope/vim-commentary'
+Plugin 'itchyny/lightline.vim'
+Plugin 'w0rp/ale'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'lervag/vimtex'
+Plugin 'knubie/vim-kitty-navigator'
+
+call vundle#end()
+
+filetype plugin indent on
+
+" Set color theme
+colorscheme onehalfdark
+
+"source scripts
+so ~/.vim/vimscripts/tex-pdfviewer.vim
+
+"default linting off - enable with :ALEToggle
+let g:ale_enabled = 0
+"Define command :Lint for toggling linter
+:command Lint ALEToggle
+
+"new split
+nnoremap <C-V> <C-w>v
+nnoremap <C-S> <C-w>s
+
+"Navigating splits
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+
+"Navigating splits in terminal mode
+tnoremap <C-l> <C-w>l
+tnoremap <C-h> <C-w>h
+tnoremap <C-j> <C-w>j
+tnoremap <C-k> <C-w>k
+
+" Navigate between tabs
+nnoremap <C-T> :tabnew<CR>
+nnoremap <C-B> :tabprev<CR>
+nnoremap <C-F> :tabnext<CR>
+
+"defaults syntax to on
+syntax on
+
+"makes tabs to be 4 spaces
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+"continues previous line's indent
+set autoindent
+
+"number lines shown
+set number
+
+"backspace a whole tab at once
+set smarttab
+
+"display status line
+set laststatus=2
+
+"Gives 15 lines below selected line during scroll
+set scrolloff=15
+
+"Turn on spell checker (turn off with :set nospell)
+set spell
+
+"Set local leadeer to \
+let maplocalleader = "\\"
+
+"Turns off continuous complile default and autoview for VimTex
+let g:vimtex_compiler_latexmk = {'continuous': 0}
+let g:vimtex_view_automatic=0
+
+"Set command to complile minted latex documents
+nnoremap <localleader>lm :!pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %<CR>
+
+"Open pdf of latex file in new kitty window
+nnoremap <localleader>o :call Viewpdf()<CR>
+nnoremap <localleader>r :call Refreshpdf()<CR>
+
+"For some reason delete key not working with vim in kitty
+"This fixes the bug
+set backspace=indent,eol,start
+
+"Default macros
+" New line below without leaving normal mode
+let @o = '€ýaoj'
+" Move latex env close down two lines and place curser inside the env
+let @e = 'F\i€ýak'
+
