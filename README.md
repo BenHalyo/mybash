@@ -1,5 +1,7 @@
 # My environment set up
 
+This folders contains all my personal bash preferences including vim and kitty settings. It also holds a number of scripts and templates that I use in my latex workflow.
+
 ## Set up bash
 ### Place in .zshrc or .bashrc
 source $HOME/.env/source-env.sh
