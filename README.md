@@ -22,5 +22,5 @@ https://github.com/VundleVim/Vundle.vim
 
 ## Set up kitty
 Create soft link to kitty config file
-ln -s ~/.env/kitty/kitty.config ~/.config/kitty/kitty.config
+ln -s ~/.env/kitty/kitty.conf ~/.config/kitty/kitty.conf
 
