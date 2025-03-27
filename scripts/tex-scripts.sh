@@ -5,6 +5,7 @@ function newtex {
     b_flag=false
     f_name='template'
     open_vim=false
+    cstm_template='default'
     
     function printhelp() {
         echo 'Make formatted latex document
@@ -12,19 +13,22 @@ function newtex {
       -m include minted package
       -o open new tex file in vim
       -c [class name] set document class (default=article)
-         -> Set class to lp if want lesson plan template
       -b basic mode: do not include any packages
-      -f [filename] set filename (default=template)'
+      -f [filename] set filename (default=template)
+      -t [template] use template
+        -> lp for lesson plan
+        -> beamer for beamer slides'
     }
     
     if [[ "$#" == 1 ]]; then
         f_name="$1"
     fi
 
-    while getopts 'hmoc:bf:' flag; do
+    while getopts 'hmoc:bf:t:' flag; do
        case "${flag}" in
            h) printhelp; return ;;
            m) m_flag=true;;
+           t) cstm_template="${OPTARG}";;
            c) class="${OPTARG}" ;;
            b) b_flag=true ;;
            f) f_name="${OPTARG}";; 
@@ -32,14 +36,25 @@ function newtex {
        esac
     done
     
-    if [[ "${class}" == beamer ]]; then
+    if [[ "$cstm_template" == beamer ]]; then
         cp ~/.env/templates/tex-beamer-template.tex "${f_name}.tex"
-    elif [[ "${class}" == lp ]]; then
+    elif [[ "$cstm_template" == lp ]]; then
         cp ~/.env/templates/lesson-plan-template.tex "${f_name}.tex"
-    else
+    elif [[ "$cstm_template" == default ]]; then
         cp ~/.env/templates/tex-template.tex "${f_name}.tex"
         sed -i '' s/article/"${class}"/g "${f_name}.tex"
+    else
+        echo "$cstm_template is not a template option"
     fi
+
+    # if [[ "${class}" == beamer ]]; then
+    #     cp ~/.env/templates/tex-beamer-template.tex "${f_name}.tex"
+    # elif [[ "${class}" == lp ]]; then
+    #     cp ~/.env/templates/lesson-plan-template.tex "${f_name}.tex"
+    # else
+    #     cp ~/.env/templates/tex-template.tex "${f_name}.tex"
+    #     sed -i '' s/article/"${class}"/g "${f_name}.tex"
+    # fi
 
     if [[ "$b_flag" == true ]]; then
         sed -i '' -e '/\\usepackage/d' "${f_name}.tex" 

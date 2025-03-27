@@ -1,0 +1,25 @@
+# main dirs
+documents $DOCUMENTS
+downloads $DOWNLOADS
+desktop $HOME/Desktop
+env_dir $ENV_DIR
+
+# common base directories
+editing $HOME/doc_edit
+teaching $DOCUMENTS/teaching
+courses $DOCUMENTS/teaching/Taylor
+textbooks $DOCUMENTS/books/textbooks
+books $DOCUMENTS/books
+presentations $DOCUMENTS/presentations
+personal $DOCUMENTS/personal
+projects $DOCUMENTS/projects
+research $DOCUMENTS/research
+
+# active courses
+astro $DOCUMENTS/teaching/Taylor/PHY201
+genphys $DOCUMENTS/teaching/Taylor/PHY204
+uphys $DOCUMENTS/teaching/Taylor/PHY211
+uphys2 $DOCUMENTS/teaching/Taylor/PHY212
+analytical $DOCUMENTS/teaching/Taylor/PHY342
+electrodynamics $DOCUMENTS/teaching/Taylor/PHY321
+thermo $DOCUMENTS/teaching/Taylor/PHY350

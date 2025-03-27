@@ -1,5 +1,9 @@
 set term=xterm-256color
 
+" Needed for italics in vim
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
+
 "plugins
 set nocompatible
 filetype off

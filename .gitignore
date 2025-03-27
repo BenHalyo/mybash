@@ -5,6 +5,9 @@
 .LSOverride
 Icon
 
+# venv_dir
+venv_dir
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

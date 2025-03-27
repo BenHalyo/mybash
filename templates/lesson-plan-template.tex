@@ -11,13 +11,14 @@
 \usepackage{float} %Improves the interface for defining floating objects such as figures and tables
 \usepackage{geometry} %This package provides a flexible and easy interface to page dimensions.
 \usepackage{graphicx} %The package builds upon the graphics package, providing a key-value interface for optional arguments to the \includegraphics command.
-\usepackage{tabularx} %Version of tabular where col widths are calculated to hit a specified table width
+\usepackage{longtable}
 \usepackage{lmodern} %latin modern fonts
 \usepackage{makecell} %formating cells in tables
+\usepackage{parskip}
+\usepackage[shortlabels]{enumitem} %For enumerate lists with different counter symbols
 
 %Page setup
 \geometry{margin=1in}
-\setlength{\parindent}{0pt} %Set the size of indent for first line of a paragraph
 
 \begin{document}
 Lesson Title:\\ 
@@ -26,25 +27,60 @@ Length of Lesson:\\
 Concept Statement:\\
 Objectives: Students will be able to
 \begin{itemize}
+    \parskip=0em
     \item object
 \end{itemize}
+Resources:
 
-\begin{tabularx}{\linewidth}{
-    | >{\raggedright\arraybackslash\hsize=.6\hsize}X | 
-    >{\raggedright\arraybackslash\hsize=.4\hsize}X |
-    >{\raggedright\arraybackslash\hsize=1\hsize}X |
-    >{\raggedright\arraybackslash\hsize=2\hsize}X |}
+\vspace{0.1cm}
+
+\begin{longtable}{| 
+    % >{\raggedright}p{0.08\linewidth} |
+    % >{\raggedright} p{0.07\linewidth} | 
+    >{\raggedright}p{0.24\linewidth} |
+    >{\setlength\parskip{0.1cm}} p{0.65\linewidth} | }
 
     \hline
-    \thead{Format} & 
-    \thead{Est. Time} & 
-    \thead{Subject} &
+    % \thead{Format} & 
+    % \thead{Est.\\ Time} & 
+    % \thead{Subject} &
+    \thead{Section} &
     \thead{Notes} \\ \hline
 
-    &
-    &
-    &
+    % &
+    % &
+    \makecell[l]{}&
     \\ \hline
 
-\end{tabularx}
+    % &
+    % &
+    \makecell[l]{}&
+    \\ \hline
+
+    % &
+    % &
+    \makecell[l]{}&
+    \\ \hline
+
+    % &
+    % &
+    \makecell[l]{}&
+    \\ \hline
+
+    % &
+    % &
+    \makecell[l]{}&
+    \\ \hline
+
+    % &
+    % &
+    \makecell[l]{}&
+    \\ \hline
+
+    % &
+    % &
+    \makecell[l]{}&
+    \\ \hline
+
+\end{longtable}
 \end{document}
